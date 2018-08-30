@@ -1,0 +1,14 @@
+/**index.wxss**/
+.swipe-card-container {
+  width: 600rpx;
+  height: 900rpx;
+  margin-top: 20rpx;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  perspective: 1000px;
+}
+
+page {
+  background: #eee;
+}

@@ -1,0 +1,13 @@
+<!--index.wxml-->
+
+<view class="container">
+  <view class="swipe-card-container">
+    <mp-swipe-card
+      bind:click="handleClickCard"
+      push-list="{{pushList}}"
+      bind:swipeout="handleSwipeOut"      
+    >
+      <view>{{item}}</view>  
+    </mp-swipe-card>
+  </view>
+</view>

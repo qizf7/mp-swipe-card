@@ -1,0 +1,8 @@
+/* components/card-item/mp-swipe-card-item.wxss */
+.id-text {
+  font-size: 48rpx;
+}
+
+.name-text {
+  font-size: 64rpx;
+}

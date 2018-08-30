@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "mp-swipe-card": "../../components/mp-swipe-card/mp-swipe-card"
+  }
+}

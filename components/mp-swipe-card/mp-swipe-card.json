@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mp-swipe-card-item": "../../components/mp-swipe-card-item/mp-swipe-card-item"
+  }
+}
