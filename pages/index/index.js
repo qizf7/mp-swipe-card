@@ -4,9 +4,20 @@ const app = getApp()
 
 const nameList = ['杀生丸殿下', '犬夜叉', '巫女桔梗', '日暮戈薇'];
 
+const generateItem = () => {
+  return {
+    id: Math.floor(Math.random() * 1000),
+    name: nameList[Math.floor(Math.random() * 3.99)],
+  }
+}
 Page({
   data: {
-    pushList: []
+    pushList: [
+      generateItem(),
+      generateItem(),
+      generateItem(),
+      generateItem()
+    ]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -15,19 +26,12 @@ Page({
   onLoad: function () {
     setInterval(() => {
       this.setData({
-        pushList: [{
-          id: Math.floor(Math.random() * 1000),
-          name: nameList[Math.floor(Math.random() * 3.99)],
-        },{
-          id: Math.floor(Math.random() * 1000),
-          name: nameList[Math.floor(Math.random() * 3.99)],
-        },{
-          id: Math.floor(Math.random() * 1000),
-          name: nameList[Math.floor(Math.random() * 3.99)],
-        },{
-          id: Math.floor(Math.random() * 1000),
-          name: nameList[Math.floor(Math.random() * 3.99)],
-        }]
+        pushList: [
+          generateItem(),
+          generateItem(),
+          generateItem(),
+          generateItem()
+        ]
       })
     }, 5000)
   },

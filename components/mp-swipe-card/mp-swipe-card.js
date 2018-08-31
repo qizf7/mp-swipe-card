@@ -1,10 +1,5 @@
 // components/mp-swipe-card/mp-swipe-card.js
 
-wx.createAnimation({
-  duration: 300,
-  timingFunction: 'ease-in',
-})
-
 const HTRESHOLD = 150;
 
 Component({
@@ -71,17 +66,22 @@ Component({
       if (currentPosition.x > HTRESHOLD) {
         this.triggerEvent('swipeout', {
           direction: 'right',
-          length: this.data.list.length - 1
+          item: this.data.list.slice(-1)[0],
+          list: this.data.list,
         });
         this.translate(currentPosition, {x: 1000, y:0, z: 0}, 300, this.popTop.bind(this));
       } else if (currentPosition.x < -HTRESHOLD) {
         this.triggerEvent('swipeout', {
           direction: 'left',
-          length: this.data.list.length - 1
+          item: this.data.list.slice(-1)[0],
+          list: this.data.list,
         });
         this.translate(currentPosition, {x: -1000, y:0, z: 0}, 300, this.popTop.bind(this));
       } else {
-        this.triggerEvent('reset');
+        this.triggerEvent('swipereset', {
+          item: this.data.list.slice(-1)[0],
+          list: this.data.list,
+        });
         this.resetPosition();
       }
     },
