@@ -8,22 +8,19 @@
 </template>
 
 <view 
-  id="swipe-card"
-  class="swipe-card-container"
+  id="mp-swipe-card"
+  class="mp-swipe-card-container"
   bind:touchmove="handleTouchMove"
   bind:touchstart="handleTouchStart"
   bind:touchcancel="handleTouchEnd"
   bind:touchend="handleTouchEnd"
 >
-  <view class="placeholder-0"></view>
-  <view class="placeholder-1"></view>
-  <view class="placeholder-2"></view>
   <view 
     wx:for="{{list}}" 
     wx:for-index="idx"
     wx:key="item.id"
     wx:if="{{list.length - idx < 4}}"
-    class="swipe-card-item {{list.length - 1 === idx ? 'top' : ''}}"
+    class="mp-swipe-card-item {{list.length - 1 === idx ? 'top' : ''}}"
     style="transform: translate3d({{list.length - 1 === idx ? position.x : 0 }}rpx, 0rpx, 0rpx);"
   >
     <mp-swipe-card-item

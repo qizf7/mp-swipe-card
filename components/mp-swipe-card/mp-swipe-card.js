@@ -26,6 +26,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    lock: false,
     position: {
       x: 0,
       y: 0,
@@ -42,6 +43,7 @@ Component({
   methods: {
     handleTouchStart(e) {
       if (this.data.disabled) return;
+      if (this.data.lock) return;
       const touche = e.touches[0];
       this.setData({
         startPosition: {
@@ -52,8 +54,10 @@ Component({
     },
     handleTouchMove(e) {
       if (this.data.disabled) return;
+      if (this.data.lock) return;
       const touche = e.touches[0];
       const startPosition = this.data.startPosition;
+
       this.setData({
         position: {
           x: (touche.clientX - startPosition.x) * 2,
@@ -62,6 +66,8 @@ Component({
     },
     handleTouchEnd(e) {
       if (this.data.disabled) return;
+      if (this.data.lock) return;
+      this.data.lock = true;
       const currentPosition = this.data.position;
       if (currentPosition.x > HTRESHOLD) {
         this.triggerEvent('swipeout', {
@@ -69,20 +75,29 @@ Component({
           item: this.data.list.slice(-1)[0],
           list: this.data.list,
         });
-        this.translate(currentPosition, {x: 1000, y:0, z: 0}, 300, this.popTop.bind(this));
+        this.translate(currentPosition, {x: 1000, y:0, z: 0}, 300, () => {
+          this.popTop();
+          this.data.lock = false;
+        });
       } else if (currentPosition.x < -HTRESHOLD) {
         this.triggerEvent('swipeout', {
           direction: 'left',
           item: this.data.list.slice(-1)[0],
           list: this.data.list,
         });
-        this.translate(currentPosition, {x: -1000, y:0, z: 0}, 300, this.popTop.bind(this));
+        this.translate(currentPosition, {x: -1000, y:0, z: 0}, 300, () => {
+          this.popTop();
+          this.data.lock = false;
+        });
       } else {
         this.triggerEvent('swipereset', {
           item: this.data.list.slice(-1)[0],
           list: this.data.list,
         });
-        this.resetPosition();
+        const currentPosition = this.data.position;
+        this.translate(currentPosition, {x: 0, y:0, z: 0}, 300, () => {
+          this.data.lock = false;
+        });
       }
     },
     popTop() {
@@ -122,9 +137,5 @@ Component({
       }
       run()
     },
-    resetPosition() {
-      const currentPosition = this.data.position;
-      this.translate(currentPosition, {x: 0, y:0, z: 0}, 300);
-    }
   }
 })
