@@ -75,7 +75,7 @@ Component({
           item: this.data.list.slice(-1)[0],
           list: this.data.list,
         });
-        this.translate(currentPosition, {x: 1000, y:0, z: 0}, 300, () => {
+        this.translate(currentPosition, {x: 1000, y:0, z: 0}, 200, () => {
           this.popTop();
           this.data.lock = false;
         });
@@ -85,7 +85,7 @@ Component({
           item: this.data.list.slice(-1)[0],
           list: this.data.list,
         });
-        this.translate(currentPosition, {x: -1000, y:0, z: 0}, 300, () => {
+        this.translate(currentPosition, {x: -1000, y:0, z: 0}, 200, () => {
           this.popTop();
           this.data.lock = false;
         });
@@ -95,7 +95,7 @@ Component({
           list: this.data.list,
         });
         const currentPosition = this.data.position;
-        this.translate(currentPosition, {x: 0, y:0, z: 0}, 300, () => {
+        this.translate(currentPosition, {x: 0, y:0, z: 0}, 200, () => {
           this.data.lock = false;
         });
       }
