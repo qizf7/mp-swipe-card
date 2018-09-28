@@ -8,7 +8,8 @@
     <mp-swipe-card
       bind:click="handleClickCard"
       push-list="{{pushList}}"
-      bind:swipeout="handleSwipeOut"      
+      bind:swipeout="handleSwipeOut"
+      generic:mp-swipe-card-item="card-item"   
     >
       <view>{{item}}</view>  
     </mp-swipe-card>

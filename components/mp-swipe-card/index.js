@@ -1,5 +1,3 @@
-// components/mp-swipe-card/mp-swipe-card.js
-
 const HTRESHOLD = 150;
 
 Component({

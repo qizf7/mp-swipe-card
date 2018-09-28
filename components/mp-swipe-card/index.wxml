@@ -1,4 +1,3 @@
-<!--components/mp-swipe-card/mp-swipe-card.wxml-->
 <!-- 组件渲染模板 -->
 <template name="msgItem">
   <view bind:click="handleClick">

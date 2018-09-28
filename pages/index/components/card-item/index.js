@@ -1,4 +1,3 @@
-// components/card-item/mp-swipe-card-item.js
 Component({
   /**
    * 组件的属性列表

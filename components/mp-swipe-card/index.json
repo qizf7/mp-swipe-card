@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "componentGenerics": {
+    "mp-swipe-card-item": "true"
+  }
+}

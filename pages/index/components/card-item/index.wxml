@@ -1,4 +1,3 @@
-<!--components/card-item/mp-swipe-card-item.wxml-->
 <view class="mp-swipe-card-item">
   <view bind:tap="handleTap" class="id-text">{{itemData.id}}</view>
   <view class="name-text">{{itemData.name}}</view>
