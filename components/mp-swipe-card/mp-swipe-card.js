@@ -16,6 +16,22 @@ Component({
         })
       }
     },
+    pushUpdate: {
+      type: Object,
+      value: {},
+      observer(value) {
+        if (value.index) {
+          this.setData({
+            list: this.data.list.map((item, index) => {
+              if (index === value.index) {
+                Object.assign(item, value.data)
+              }
+              return item;
+            })
+          })
+        }
+      }
+    },
     disabled: {
       type: Boolean,
       value: false
@@ -29,8 +45,6 @@ Component({
     lock: false,
     position: {
       x: 0,
-      y: 0,
-      z: 0,
     },
     list: [
      
@@ -48,7 +62,6 @@ Component({
       this.setData({
         startPosition: {
           x: touche.clientX,
-          y: touche.clientY,
         }
       })
     },
@@ -124,8 +137,6 @@ Component({
           this.setData({
             position: {
               x: nextPosition,
-              y: 0,
-              z: 0,
             }
           })
           if (percent < 1) {

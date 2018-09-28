@@ -19,6 +19,17 @@ git clone https://github.com/qizf7/mp-swipe-card.git
 #### push-list(Array)
 推入组件的数组。每次变化都会将新的数组推入组件中，在内容组件（mp-swipe-card-item）可以接收推入的数组项，自定义卡片内容。
 
+#### push-update(Object)
+用来更新list内的数据。对象格式如下
+```javascript
+{
+  index: 0, // 要更新的item索引
+  data: {
+    name: '小小宝'  // 要更新的item数据，更新使用Object.assign将data合并到原数据。
+  }
+}
+```
+
 #### disabled(Boolean)
 是否禁止滑动
 
