@@ -17,7 +17,7 @@ git clone https://github.com/qizf7/mp-swipe-card.git
 ## 属性
 
 #### push-list(Array)
-推入组件的数组。每次变化都会将新的数组推入组件中，在内容组件（mp-swipe-card-item）可以接收推入的数组项，自定义卡片内容。
+推入组件的数组。每次变化都会将新的数组推入组件中，抽象组件内（mp-swipe-card-item）可以接收推入的数组项，自定义卡片内容。
 
 #### push-update(Object)
 用来更新list内的数据。对象格式如下
@@ -57,6 +57,5 @@ git clone https://github.com/qizf7/mp-swipe-card.git
 
 ## todo list
 - [ ] 优化动画效果，新增多方向滑动
-- [ ] 解决依赖子组件问题，scoped slot替代方案。
 
 
